@@ -1,17 +1,14 @@
 import React from 'react';
 
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    height: '50vh',
-    textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+  gridItem: {
+    display: "grid",
+    justifyItems: "center",
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -42,7 +39,7 @@ function Questions(props) {
         Is your number present in the following list?
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        {numList.toString()}
+        {numList.join(", ")}
       </Typography>
     </React.Fragment>
   );
@@ -129,11 +126,24 @@ export default function App() {
   }
 
   return (
-    <div className={classes.root}>
-      <div>
-        <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+    <Grid
+      container
+      display="grid"
+      spacing={4}
+      direction="column"
+      alignItems="center"
+      justify="center"
+      style={{ minHeight: '60vh' }}
+    >
+      <Grid 
+        item
+        className={classes.gridItem}
+      >
+        {getStepContent(activeStep)}
+      </Grid>
+      <Grid item>
         {buttons}
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
