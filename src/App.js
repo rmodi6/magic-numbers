@@ -1,5 +1,3 @@
-import './App.css';
-
 import React from 'react';
 
 import Button from '@material-ui/core/Button';
@@ -9,6 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    height: '50vh',
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   backButton: {
     marginRight: theme.spacing(1),
